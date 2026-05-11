@@ -1,0 +1,380 @@
+:root {
+    --bg: #080808;
+    --text: #F0EDE6;
+    --accent: #C8FF00;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+}
+
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#grain-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.06;
+}
+
+.light-leak {
+    position: fixed;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    mix-blend-mode: screen;
+    filter: blur(80px);
+}
+
+#light-leak-1 {
+    background: radial-gradient(circle, rgba(200, 255, 0, 0.15) 0%, rgba(8, 8, 8, 0) 70%);
+}
+
+#light-leak-2 {
+    background: radial-gradient(circle, rgba(240, 237, 230, 0.05) 0%, rgba(8, 8, 8, 0) 70%);
+}
+
+#smooth-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    will-change: transform;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    padding: 10vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* 1. HERO */
+.hero {
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(6rem, 20vw, 25rem);
+    line-height: 0.8;
+    margin-bottom: 1rem;
+    mix-blend-mode: exclusion;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+}
+
+/* 2. REVEAL */
+.reveal-section {
+    align-items: center;
+    text-align: center;
+}
+
+.reveal-text {
+    font-size: clamp(2rem, 5vw, 4rem);
+    max-width: 800px;
+    line-height: 1.2;
+}
+
+.reveal-text span {
+    opacity: 0.2;
+    display: inline-block;
+    margin-right: 0.2em;
+}
+
+.footnote {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-top: 2rem;
+}
+
+/* 3. FEATURES */
+.features {
+    justify-content: center;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.card {
+    border: 1px solid rgba(240, 237, 230, 0.2);
+    padding: 2rem;
+    background: rgba(8, 8, 8, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.card h3 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+/* 4. BENCHMARK */
+.benchmark-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.benchmark-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.bar-group {
+    margin-bottom: 2rem;
+}
+
+.bar-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.bar-track {
+    width: 100%;
+    height: 2px;
+    background: rgba(240, 237, 230, 0.1);
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.bar-fill.industry {
+    background: rgba(240, 237, 230, 0.5);
+}
+
+.benchmark-foot {
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-top: 2rem;
+    text-align: right;
+}
+
+/* 5. MODEL CARD */
+.model-card {
+    align-items: center;
+}
+
+.abstract-box {
+    border: 1px solid rgba(240, 237, 230, 0.2);
+    padding: 3rem;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.abstract-box h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--text);
+    padding-bottom: 0.5rem;
+}
+
+.abstract-box p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.bibtex {
+    background: rgba(240, 237, 230, 0.05);
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    overflow-x: auto;
+    color: var(--accent);
+    white-space: pre-wrap;
+}
+
+/* 6. INTERACTIVE */
+.interactive {
+    align-items: center;
+    text-align: center;
+}
+
+.interactive h2 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+button {
+    background: transparent;
+    border: 1px solid var(--text);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: var(--text);
+    color: var(--bg);
+}
+
+.status-msg {
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.8;
+    height: 1.5rem;
+}
+
+/* 7. TESTIMONIALS */
+.testimonials {
+    justify-content: center;
+}
+
+.test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.test-card {
+    padding: 2rem;
+    border-left: 2px solid var(--accent);
+}
+
+.test-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.test-author {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* 8. PRICING */
+.pricing {
+    align-items: center;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 3rem;
+}
+
+.price-card {
+    border: 1px solid rgba(240, 237, 230, 0.2);
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+}
+
+.price-card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.price-card p {
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    min-height: 3em;
+}
+
+.price-card .price {
+    font-family: 'Bebas Neue';
+    font-size: 4rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+}
+
+/* 9. FOOTER */
+.footer {
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20vh 5vw;
+}
+
+.footer h2 {
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.footer p {
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}

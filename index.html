@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lusion | Oryzo-1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="grain-canvas"></canvas>
+    <div id="light-leak-1" class="light-leak"></div>
+    <div id="light-leak-2" class="light-leak"></div>
+    <div id="canvas-container"></div>
+
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- 1. HERO -->
+            <section class="hero">
+                <h1>Oryzo</h1>
+                <p>Made for mugs. Built for tables.</p>
+            </section>
+
+            <!-- 2. REVEAL -->
+            <section class="reveal-section">
+                <div class="reveal-text" id="reveal-text">
+                    Oryzo isn't just a coaster. It's the result of unprecedented AI* breakthroughs.
+                </div>
+                <div class="footnote">*AI = Adobe Illustrator</div>
+            </section>
+
+            <!-- 3. FEATURES -->
+            <section class="features">
+                <div class="cards-grid">
+                    <div class="card feature-card">
+                        <h3>Elevate your coffee experience</h3>
+                        <p>With a precision-engineered lift (exactly one coaster thick), Oryzo doesn't just hold your mug - it elevates it.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <h3>Thermodynamic stability</h3>
+                        <p>From piping-hot mugs to ice-cold drinks - Oryzo stays perfectly stable. Your coffee table already tapped out three sips ago.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <h3>Now 37.9% More Circular</h3>
+                        <p>Our engineers recalibrated its circumference with disturbing levels of attention to detail - just because we could.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. BENCHMARK -->
+            <section class="benchmark">
+                <div class="benchmark-container">
+                    <h2 class="benchmark-title">Oryzo vs Regular Coasters</h2>
+                    
+                    <div class="bar-group">
+                        <div class="bar-label"><span>Circularity (circle = 1.0)</span> <span>1.0 / 0.62</span></div>
+                        <div class="bar-track"><div class="bar-fill" data-width="100%"></div></div>
+                        <div class="bar-track" style="margin-top: 4px; opacity: 0.5;"><div class="bar-fill industry" data-width="62%"></div></div>
+                    </div>
+                    
+                    <div class="bar-group">
+                        <div class="bar-label"><span>Friction coefficient (est)</span> <span>0.80 / 0.20</span></div>
+                        <div class="bar-track"><div class="bar-fill" data-width="80%"></div></div>
+                        <div class="bar-track" style="margin-top: 4px; opacity: 0.5;"><div class="bar-fill industry" data-width="20%"></div></div>
+                    </div>
+
+                    <div class="bar-group">
+                        <div class="bar-label"><span>Power draw while in use</span> <span>0W / 0W</span></div>
+                        <div class="bar-track"><div class="bar-fill" data-width="0%"></div></div>
+                        <div class="bar-track" style="margin-top: 4px; opacity: 0.5;"><div class="bar-fill industry" data-width="0%"></div></div>
+                    </div>
+
+                    <div class="benchmark-foot">RoPE: Roundness Optimization & Perimeter Engineering.</div>
+                </div>
+            </section>
+
+            <!-- 5. MODEL CARD -->
+            <section class="model-card">
+                <div class="abstract-box">
+                    <h2>ORYZO-1 MODEL</h2>
+                    <p>We present Oryzo-1, an open-weight 3D model of a cork coaster for rendering, simulation, and gloriously unnecessary research. Released in clean OBJ format with baseline results on our own WoodenBench.</p>
+                    <div class="bibtex">@misc{oryzo2026,
+  title={Oryzo-1: Open-Weight Coaster Model},
+  author={Lusion},
+  year={2026},
+  howpublished={OBJ release}
+}</div>
+                </div>
+            </section>
+
+            <!-- 6. INTERACTIVE -->
+            <section class="interactive">
+                <h2>Smart flip encryption</h2>
+                <div class="btn-group">
+                    <button id="btn-encode">[Write Message]</button>
+                    <button id="btn-decode">[Flip Coaster]</button>
+                </div>
+                <div class="status-msg" id="status-msg"></div>
+            </section>
+
+            <!-- 7. TESTIMONIALS -->
+            <section class="testimonials">
+                <div class="test-grid">
+                    <div class="test-card">
+                        <div class="test-quote">"This is the best coaster that I've ever used. I can't go to space without it."</div>
+                        <div class="test-author">— Edan K., NASA astronaut wannabe</div>
+                    </div>
+                    <div class="test-card">
+                        <div class="test-quote">"We are so cooked. Hollywood is not ready for a coaster this cinematic."</div>
+                        <div class="test-author">— Jamie R., AI influencer</div>
+                    </div>
+                    <div class="test-card">
+                        <div class="test-quote">"My table hasn't been this protected since I stopped trusting gravity."</div>
+                        <div class="test-author">— Priya K., Flat Earth believer</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. PRICING -->
+            <section class="pricing">
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <h3>ORYZO</h3>
+                        <p>One coaster. One job. Done beautifully.<br>Lift: 1 coaster thick.</p>
+                        <div class="price">Free</div>
+                        <button>Deploy</button>
+                    </div>
+                    <div class="price-card" style="border-color: var(--accent);">
+                        <h3>ORYZO Pro</h3>
+                        <p>Twice the cork. Twice the commitment.<br>Lift: 2 coasters thick.</p>
+                        <div class="price">$99/mo</div>
+                        <button style="background: var(--accent); color: var(--bg); border: none;">Subscribe</button>
+                    </div>
+                    <div class="price-card">
+                        <h3>ORYZO Pro Max</h3>
+                        <p>Three layers of confidence. For people who like their coffee slightly above it all.</p>
+                        <div class="price">Enterprise</div>
+                        <button>Contact Sales</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. FOOTER -->
+            <section class="footer">
+                <h2 class="footer-reveal-text">We caught your attention with a non-existent product.<br>Imagine what we can do for your brand.</h2>
+                <p>— Built by Lusion with love</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
